@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Tags";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@section styles
+{
+    <link href="~/Content/tagmanager.css" rel="stylesheet" />
+}
+
+<div style="margin: 10px;">
+
+    <input type="text" name="tags" placeholder="Tags" class="tm-input"/>
+
+</div>
+@section scripts
+{
+    <script src="~/Scripts/tagmanager.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('.tm-input').tagsManager();
+        });
+    </script>
+}

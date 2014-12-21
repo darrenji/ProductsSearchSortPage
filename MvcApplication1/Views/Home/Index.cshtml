@@ -1,0 +1,674 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles
+{
+    <link href="~/Content/ProductList.css" rel="stylesheet" />
+}
+
+<div class="container">
+    <!--搜索条件开始-->
+    <div class="row" id="searches">
+        <div class="span12">
+            <table class="table table-condensed table-hover" id="serachtable">
+                <tbody>
+                    <tr>
+                        <td class="fristcell">搜索条件</td>
+                        <td class="secondcontent" id="sccondition">
+                            <ul class="tagul">                                                                                                                                                                                                                    
+                            </ul>
+                            <input type="hidden" value="" name="brand"/>
+                            <input type="hidden" value="" name="category"/>
+                            <input type="hidden" value="" name="lowprice"/>
+                            <input type="hidden" value="" name="highprice"/>
+                            <input type="hidden" value="" name="age"/>
+                            <input type="hidden" value="0" name="pricesort"/>
+                        </td>
+                    </tr>                    
+                    <tr>
+                        <td class="fristcell">品牌</td>
+                        <td class="secondcontent" id="pp">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fristcell">分类</td>
+                        <td class="secondcontent" id="fl">				            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fristcell">价格</td>
+                        <td class="secondcontent" id="jg">
+                            <a class="innera" href="javascript:void(0)" lowprice="80" highprice="">80元以下</a>
+                            <a class="innera" href="javascript:void(0)" lowprice="80" highprice="90">80-90元</a>
+                            <a class="innera" href="javascript:void(0)" lowprice="90" highprice="100">90-100元</a>
+                            <a class="innera" href="javascript:void(0)" lowprice="100" highprice="110">100-110元</a>
+                            <a class="innera" href="javascript:void(0)" lowprice="110" highprice="120">110-120元</a>
+                            <a class="innera" href="javascript:void(0)" lowprice="120" highprice="130">120-130元</a>
+                            <a class="innera" href="javascript:void(0)" lowprice="130" highprice="140">130-140元</a>
+                            <a class="innera" href="javascript:void(0)" lowprice="140" highprice="150">140-150元</a>
+                            <a class="innera" href="javascript:void(0)" lowprice="150" highprice="160">150-160元</a>
+                            <a class="innera" href="javascript:void(0)" lowprice="160" highprice="170">160-170元</a>
+                            <a class="innera" href="javascript:void(0)" lowprice="170" highprice="180">170-180元</a>
+                            <a class="innera" href="javascript:void(0)" lowprice="180" highprice="190">180-190元</a>
+                            <a class="innera" href="javascript:void(0)" lowprice="190" highprice="200">190-200元</a>
+                            <a class="innera" href="javascript:void(0)" lowprice="200" highprice="210">200-210元</a>
+                            <a class="innera" href="javascript:void(0)" lowprice="210" highprice="220">210-220元</a>
+                            <a class="innera" href="javascript:void(0)" lowprice="220" highprice="230">220-230元</a>
+                            <a class="innera" href="javascript:void(0)" lowprice="" highprice="230">230元以上</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fristcell">年限</td>
+                        <td class="secondcontent" id="nx">				            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fristcell">排序</td>
+                        <td class="secondcontent" id="px">
+                             <a class="innera" href="javascript:void(0)" id="pricesort">价格<span style="margin: 0px;">∧</span><span style="margin: 0px;display: none">∨</span></a>				            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--搜索条件结束-->
+    
+    <!--产品展示开始-->
+@*    <div class="row" id="products">
+        这里显示动态内容
+    </div>*@
+    <!--产品展示结束-->
+    
+    
+<div class="container">
+    <div class="well well-sm">
+        <strong>显示方式</strong>
+        <div class="btn-group">
+            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>列表</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                class="glyphicon glyphicon-th"></span>格子</a>
+        </div>
+    </div>
+    <div id="products" class="row list-group">
+@*        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        Product title</h4>
+                    <p class="group inner list-group-item-text">
+                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                $21.000</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        Product title</h4>
+                    <p class="group inner list-group-item-text">
+                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                $21.000</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        Product title</h4>
+                    <p class="group inner list-group-item-text">
+                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                $21.000</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        Product title</h4>
+                    <p class="group inner list-group-item-text">
+                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                $21.000</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        Product title</h4>
+                    <p class="group inner list-group-item-text">
+                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                $21.000</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        Product title</h4>
+                    <p class="group inner list-group-item-text">
+                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                $21.000</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    </div>
+</div>    
+    
+
+    
+    <!--分页开始-->
+    <div class="row" id="page-selection" style="text-align: center;margin-bottom: 50px;"></div>
+    <!--分页结束条件开始-->
+</div>
+
+
+
+@section scripts
+{
+    <script src="~/Scripts/jquery.tmpl.min.js"></script>
+    <script src="~/Scripts/jquery.bootpag.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+
+            //加载首页产品
+            $.getJSON('@Url.Action("GetFirstPage","Home")', function(data) {
+                if (data) {
+                    $('#productTemplate').tmpl(data).appendTo('#products');
+
+                    //关于分页
+                    $('#page-selection').bootpag({
+                        total: data.total, //初始显示的页数
+                        maxVisible: 10
+                    }).on("page", function (event, num) { //点击分页按钮
+                        
+                        var productQueryObject = {
+                            categoryName: $('#sccondition').find("input[name='category']").val(),
+                            brandName: $('#sccondition').find("input[name='brand']").val(),
+                            age: $('#sccondition').find("input[name='age']").val(),
+                            lowPrice: $('#sccondition').find("input[name='lowprice']").val(),
+                            highPrice: $('#sccondition').find("input[name='highprice']").val(),
+                            pageIndex: num,
+                            pageSize: 6,
+                            paiXu: $('#sccondition').find("input[name='pricesort']").val()
+                        };
+
+                        $.ajax({
+                            type: "POST",
+                            url: '@Url.Action("GetProductsBySearchSortPage","Home")',
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            data: JSON.stringify(productQueryObject),
+                            success: function (result) {
+                                $('#products').empty();
+                                $('#productTemplate').tmpl(result).appendTo('#products');
+                                //maxVisible 最多可见的页数
+                                $(this).bootpag({ total: result.total});
+                            },
+                            error: function (error) {
+                                alert("有错误: " + error.responseText);
+                            }
+                        });
+
+                        
+                    });
+                }
+            });
+
+            
+
+            //加载所有品牌
+            $.getJSON('@Url.Action("GetBrandsJson", "Home")', function (data) {
+
+                $('#pinpaiTemplate').tmpl(data).appendTo('#pp');
+            });
+
+            //点击某一品牌
+            $('#pp').on("click", ".innera", function () {
+
+                //先清空其它已经存在与搜索区域的品牌
+                $('ul.tagul li').find('.pinpaitag').parent().hide();
+
+                //清空搜索区域中有关品牌的隐藏域
+                $('#sccondition').find("input[name='brand']").val('');
+
+                //当前a以外的为不选中状态
+                $('#pp').find('.innera').removeClass('selected');
+
+                //当前a为选中状态
+                $(this).addClass('selected');
+
+                //填充模版并追加到搜索区域
+                $('#pinpaitagTemplate').tmpl({ pinpai: $(this).text() }).appendTo('ul.tagul');
+
+                //为搜索区域中有关品牌的隐藏域赋值
+                $('#sccondition').find("input[name='brand']").val($(this).text());
+
+                getProductsBySortOrSearch();
+
+            });           
+
+            //加载所有类别
+            $.getJSON('@Url.Action("GetCategoriesJson", "Home")', function(data) {
+                $('#leibieTemplate').tmpl(data).appendTo('#fl');
+            });
+
+            //点击某一类别
+            $('#fl').on("click", ".innera", function () {
+
+                //先清空其它已经存在与搜索区域的类别
+                $('ul.tagul li').find('.fenleitag').parent().hide();
+
+                //清空搜索区域中有关类别的隐藏域
+                $('#sccondition').find("input[name='category']").val('');
+
+                //当前a以外的为不选中状态
+                $('#fl').find('.innera').removeClass('selected');
+
+                //当前a为选中状态
+                $(this).addClass('selected');
+
+                //填充模版并追加到搜索区域
+                $('#fenleitagTemplate').tmpl({ fenlei: $(this).text() }).appendTo('ul.tagul');
+
+                //为搜索区域中有关类别的隐藏域赋值
+                $('#sccondition').find("input[name='category']").val($(this).text());
+
+                getProductsBySortOrSearch();
+
+            });
+
+            //加载所有Age
+            $.getJSON('@Url.Action("GetAgesJson", "Home")', function(data) {
+                $('#ageTemplate').tmpl(data).appendTo('#nx');
+            });
+
+            //点击某一年限
+            $('#nx').on("click", ".innera", function () {
+
+                //先清空其它已经存在与搜索区域的年限
+                $('ul.tagul li').find('.agetag').parent().hide();
+
+                //清空搜索区域中有关年限的隐藏域
+                $('#sccondition').find("input[name='age']").val('');
+
+                //当前a以外的为不选中状态
+                $('#nx').find('.innera').removeClass('selected');
+
+                //当前a为选中状态
+                $(this).addClass('selected');
+
+                //填充模版并追加到搜索区域
+                $('#agetagTemplate').tmpl({ age: $(this).text() }).appendTo('ul.tagul');
+
+                //为搜索区域中有关年限的隐藏域赋值
+                $('#sccondition').find("input[name='age']").val($(this).text());
+
+                getProductsBySortOrSearch();
+
+            });
+
+            //点击某一价格
+            $('#jg').on("click", ".innera", function () {
+
+                //先清空其它已经存在与搜索区域的年限
+                $('ul.tagul li').find('.pricetag').parent().hide();
+
+                //清空搜索区域中有关价格的隐藏域
+                $('#sccondition').find("input[name='lowprice']").val('');
+                $('#sccondition').find("input[name='highprice']").val('');
+
+                //当前a以外的为不选中状态
+                $('#jg').find('.innera').removeClass('selected');
+
+                //当前a为选中状态
+                $(this).addClass('selected');
+
+                //填充模版并追加到搜索区域
+                $('#pricetagTemplate').tmpl({ price: $(this).text() }).appendTo('ul.tagul');
+
+                //为搜索区域中有关价格的隐藏域赋值
+                $('#sccondition').find("input[name='lowprice']").val($(this).attr('lowprice'));
+                $('#sccondition').find("input[name='highprice']").val($(this).attr('highprice'));
+
+                getProductsBySortOrSearch();
+
+            });
+
+            
+
+            //关于产品列表
+            $('#list').click(function(event) {
+                event.preventDefault();
+                $('#products .item').addClass('list-group-item');
+            });
+
+            $('#grid').click(function(event) {
+                event.preventDefault();
+                $('#products .item').removeClass('list-group-item');
+                $('#products .item').addClass('grid-group-item');
+            });
+
+            //点击搜索标签删除
+            $('ul.tagul').on("click", "li span", function () {
+
+                //获取当前span的class值
+                var temp = $(this).attr('class');
+
+                if (temp == "tagcontent pinpaitag") {
+
+                    //把品牌中的所有a都设为不选中状态
+                    $('#pp').find('.innera').removeClass('selected');
+
+                    //清空搜索区域中有关品牌的隐藏域
+                    $('#sccondition').find("input[name='brand']").val('');
+
+                } else if (temp == "tagcontent fenleitag") {
+
+                    //把分类中的所有a都设为不选中状态
+                    $('#fl').find('.innera').removeClass('selected');
+
+                    //清空搜索区域中有关分类的隐藏域
+                    $('#sccondition').find("input[name='category']").val('');
+
+                } else if (temp == "tagcontent agetag") {
+
+                    //把年限中的所有a都设为不选中状态
+                    $('#nx').find('.innera').removeClass('selected');
+
+                    //清空搜索区域中有关年限的隐藏域
+                    $('#sccondition').find("input[name='age']").val('');
+
+                } else if (temp == "tagcontent pricetag") {
+                    
+                    //把价格中的所有a都设为不选中状态
+                    $('#jg').find('.innera').removeClass('selected');
+
+                    //清空搜索区域中有关价格的隐藏域
+                    $('#sccondition').find("input[name='lowprice']").val('');
+                    $('#sccondition').find("input[name='highprice']").val('');
+                }
+                
+                $(this).parent().hide();
+
+                getProductsBySortOrSearch();
+            }); 
+
+            //鼠标移上搜索标签
+            $('ul.tagul').on("mouseover", "li span", function() {
+                $(this).css('cursor', 'pointer');
+                $(this).css("background-color", "orangered");
+            });
+
+            //鼠标移去搜索标签
+            $('ul.tagul').on("mouseout", "li span", function() {
+                $(this).css('cursor', 'default');
+                $(this).css("background-color", "#5BC0DE");
+            });
+
+            //点击排序中的价格排序
+            $('#pricesort').on("click", function() {
+                $(this).find("span").toggle();
+
+                var temp = $('#sccondition').find("input[name='pricesort']");
+                temp.val(temp.val() == '0' ? '1' : '0');
+
+                getProductsBySortOrSearch();
+            });
+        });
+
+        //点击搜索条件或者升序降序，当前页为1
+        function getProductsBySortOrSearch() {
+            var productQueryObject = {
+                categoryName: $('#sccondition').find("input[name='category']").val(),
+                brandName: $('#sccondition').find("input[name='brand']").val(),
+                age: $('#sccondition').find("input[name='age']").val(),
+                lowPrice: $('#sccondition').find("input[name='lowprice']").val(),
+                highPrice: $('#sccondition').find("input[name='highprice']").val(),
+                pageIndex: 1,
+                pageSize: 6,
+                paiXu: $('#sccondition').find("input[name='pricesort']").val()
+            };
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("GetProductsBySearchSortPage","Home")',
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(productQueryObject),
+                success: function (data) {
+                    $('#products').empty();
+                    $('#productTemplate').tmpl(data).appendTo('#products');
+
+                    //关于分页
+                    $('#page-selection').bootpag({
+                        total: data.total, //初始显示的页数
+                        maxVisible: 10
+                    }).on("page", function (event, num) { //点击分页按钮
+
+                        var productQueryObject = {
+                            categoryName: $('#sccondition').find("input[name='category']").val(),
+                            brandName: $('#sccondition').find("input[name='brand']").val(),
+                            age: $('#sccondition').find("input[name='age']").val(),
+                            lowPrice: $('#sccondition').find("input[name='lowprice']").val(),
+                            highPrice: $('#sccondition').find("input[name='highprice']").val(),
+                            pageIndex: num,
+                            pageSize: 6,
+                            paiXu: $('#sccondition').find("input[name='pricesort']").val()
+                        };
+
+                        $.ajax({
+                            type: "POST",
+                            url: '@Url.Action("GetProductsBySearchSortPage","Home")',
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            data: JSON.stringify(productQueryObject),
+                            success: function (result) {
+                                $('#products').empty();
+                                $('#productTemplate').tmpl(result).appendTo('#products');
+                                //maxVisible 最多可见的页数
+                                $(this).bootpag({ total: result.total });
+                            },
+                            error: function (error) {
+                                alert("有错误: " + error.responseText);
+                            }
+                        });
+
+
+                    });
+                },
+                error: function (error) {
+                    alert("有错误: " + error.responseText);
+                }
+            });
+        }
+    </script>
+
+    <!--品牌搜索模版-->
+    <script id="pinpaiTemplate" type="text/x-jQuery-tmpl">
+        <a class="innera" href="javascript:void(0)">${brand}</a> 
+    </script>
+    
+    <!--类别搜索模版-->
+    <script id="leibieTemplate" type="text/x-jQuery-tmpl">
+        <a class="innera" href="javascript:void(0)">${category}</a> 
+    </script>
+    
+    <!--年限搜索模版-->
+    <script id="ageTemplate" type="text/x-jQuery-tmpl">
+        <a class="innera" href="javascript:void(0)">${age}</a> 
+    </script>
+    
+    <!--品牌标签模版-->
+    <script id="pinpaitagTemplate" type="text/x-jQuery-tmpl">
+        <li>
+            <span class="tagcontent pinpaitag">品牌：${pinpai}&nbsp;×</span>
+        </li>    
+    </script>
+    
+    <!--分类标签模版-->
+    <script id="fenleitagTemplate" type="text/x-jQuery-tmpl">
+        <li>
+            <span class="tagcontent fenleitag">分类：${fenlei}&nbsp;×</span>
+        </li>    
+    </script>
+    
+    <!--价格标签模版-->
+    <script id="pricetagTemplate" type="text/x-jQuery-tmpl">
+        <li>
+            <span class="tagcontent pricetag">价格：${price}&nbsp;×</span>
+        </li>    
+    </script>
+    
+    <!--年限标签模版-->
+    <script id="agetagTemplate" type="text/x-jQuery-tmpl">
+        <li>
+            <span class="tagcontent agetag">年限：${age}&nbsp;×</span>
+        </li>    
+    </script>
+    
+    <!--产品列表模版-->
+        <script id="productTemplate" type="text/x-jQuery-tmpl">
+
+        {{if rows}}
+            {{each rows}}
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        ${$value.Name}</h4>
+                    <p class="group inner list-group-item-text">
+                        品牌：${$value.Brand}</p>
+                    <p class="group inner list-group-item-text">
+                        分类：${$value.Category}</p>
+                    <p class="group inner list-group-item-text">
+                        年限：${$value.Age}</p>
+                    <p class="group inner list-group-item-text">
+                        ${$value.Description}</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                ￥ ${$value.Price}</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success " href="javascript:void(0)">购买</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>          
+            {{/each}}
+        {{else}}
+            <span>没有记录</span>
+        {{/if}}
+
+
+    </script>
+    
+@*    <script id="productTemplate" type="text/x-jQuery-tmpl">
+
+
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        ${Name}</h4>
+                    <p class="group inner list-group-item-text">
+                        品牌：${Brand}</p>
+                    <p class="group inner list-group-item-text">
+                        分类：${Category}</p>
+                    <p class="group inner list-group-item-text">
+                        年限：${Age}</p>
+                    <p class="group inner list-group-item-text">
+                        ${Description}</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                ￥ ${Price}</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success " href="javascript:void(0)">购买</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>          
+
+
+
+    </script>*@
+}

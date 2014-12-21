@@ -1,0 +1,135 @@
+﻿/*搜索条件*/
+
+#searches {
+    margin-top: 50px;
+}
+
+#serachtable tbody tr td.fristcell {
+    font-weight: bolder;
+    font-size: 1.1em;
+    width: 8%;
+    vertical-align: middle;
+}
+
+#serachtable tbody tr td.secondcontent a{
+    text-decoration: none;
+    border: 0px solid red;
+    margin-right: 10px;
+    padding: 5px;
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#serachtable tbody tr td.secondcontent a:hover {
+    color: white;
+    background-color: orange;
+}
+
+#serachtable tbody tr td.secondcontent a:visited {
+    color: white;
+    background-color: orange;
+}
+
+#serachtable tbody tr td.secondcontent {
+    padding: 5px 0px 5px 0px;
+}
+
+.selected {
+    background-color: orange;
+    color: white;
+}
+/*tag*/
+ul.tagul {
+    border: 0px solid orangered;
+    padding: 0px;
+    margin-bottom: 5px;
+    display: block;
+    float: left;
+}
+
+ul.tagul li {
+    border: 0px solid green;
+    display: inline-block;
+    float: left;
+    height: 18px;
+    padding: 0px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+ul.tagul li span {
+    margin: 0px;
+    padding: 2px 5px 2px 5px;
+    border: 0px solid gray;
+    background-color: #5BC0DE;
+    color: white;
+    font-weight: bold;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+
+ul li {
+    list-style-type: none;
+}
+
+/*产品列表*/
+
+.glyphicon { margin-right:5px; }
+.thumbnail
+{
+    margin-bottom: 20px;
+    padding: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.item.list-group-item
+{
+    float: none;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover
+{
+    background: #428bca;
+}
+
+.item.list-group-item .list-group-image
+{
+    margin-right: 10px;
+}
+.item.list-group-item .thumbnail
+{
+    margin-bottom: 0px;
+}
+.item.list-group-item .caption
+{
+    padding: 9px 9px 0px 9px;
+}
+.item.list-group-item:nth-of-type(odd)
+{
+    background: #eeeeee;
+}
+
+.item.list-group-item:before, .item.list-group-item:after
+{
+    display: table;
+    content: " ";
+}
+
+.item.list-group-item img
+{
+    float: left;
+}
+.item.list-group-item:after
+{
+    clear: both;
+}
+.list-group-item-text
+{
+    margin: 0 0 11px;
+}

@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "TypeHead";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles
+{
+    <link href="~/Content/TypeHead.css" rel="stylesheet" />
+}
+
+<div style="margin: 50px;">
+    <input class="typeahead" type="text" placeholder="输入城市名称">
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/typeahead.bundle.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+
+            $.getJSON('@Url.Action("GetCitiesJson","Home")', function(data) {
+                if (data) {
+                    $.each(data, function(index, city) {
+                        cities.push(city.Name);                   
+                    });
+                }
+            });
+
+
+            //预先输入功能
+            $('.typeahead').typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+            },
+            {
+                name: 'city',
+                displayKey: 'value',
+                source: substringMatcher(cities)
+            });
+        });
+
+
+        var cities = [];
+
+        //参数arr表示数据源 数组
+        var substringMatcher = function (arr) {
+            return function findMatches(q, cb) {
+                var substrRegex;
+                var matches = [];
+
+                substrRegex = new RegExp(q, 'i');
+
+                $.each(arr, function (i, ele) {
+                    if (substrRegex.test(ele)) {
+                        matches.push({ value: ele });
+                    }                   
+                });
+
+                cb(matches);
+            };
+        };
+
+    </script>
+}
